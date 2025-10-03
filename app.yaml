@@ -1,0 +1,11 @@
+runtime: nodejs18
+
+env_variables:
+  CLOUDINARY_CLOUD_NAME: 'dpkgx7wyz'
+  CLOUDINARY_API_KEY: '295189339726147'
+  CLOUDINARY_API_SECRET: 'A0dlDgmyQGszuMzxypcT7zez-vw'
+  DB_HOST: '34.30.184.252'
+  DB_USER: 'root'
+  DB_PASSWORD: "zohaibrana"
+  DB_NAME: 'tavernapp'
+  DB_PORT: '3306'
