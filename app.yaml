@@ -4,8 +4,8 @@ env_variables:
   CLOUDINARY_CLOUD_NAME: 'dpkgx7wyz'
   CLOUDINARY_API_KEY: '295189339726147'
   CLOUDINARY_API_SECRET: 'A0dlDgmyQGszuMzxypcT7zez-vw'
-  DB_HOST: '34.30.184.252'
+  DB_HOST: '6vr6li.stackhero-network.com'
   DB_USER: 'root'
-  DB_PASSWORD: "zohaibrana"
-  DB_NAME: 'tavernapp'
+  DB_PASSWORD: 'znHEMBdz7IpOYeEFvsuwbZ7KHB5PYFa3'
+  DB_NAME: 'taverna-app'
   DB_PORT: '3306'
