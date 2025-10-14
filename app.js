@@ -9,6 +9,8 @@ const barRoutes = require('./routes/barRoutes');
 const ratingRoutes = require('./routes/ratingRoutes'); // Import rating routes
 const blockedRoutes = require('./routes/blockedRoutes');
 const reportedRoutes = require('./routes/reportedRoutes');
+const reviewRoutes = require('./routes/reviewRoutes'); // Import review routes
+const crawlRoutes = require('./routes/crawlRoutes'); // Import crawl routes
 const sequelize = require('./config/database');
 
 const app = express();
@@ -28,7 +30,7 @@ app.get('/health', (req, res) => {
 });
 
 // Routes
-app.use('/api', userRoutes,barRoutes,ratingRoutes,blockedRoutes,reportedRoutes);
+app.use('/api', userRoutes,barRoutes,ratingRoutes,blockedRoutes,reportedRoutes,reviewRoutes,crawlRoutes);
 
 
 const PORT = process.env.PORT || 80;

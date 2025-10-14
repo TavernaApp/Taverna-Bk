@@ -194,3 +194,190 @@ exports.deleteBar = async (req, res) => {
     res.status(500).json({ message: 'Error deleting bar' });
   }
 };
+
+// Search bars by query
+exports.searchBars = async (req, res) => {
+  try {
+    const { query } = req.body;
+
+    // TODO: Implement bar search functionality
+    // - Search bars by name, vicinity, or other relevant fields
+    // - Use Sequelize operators like Op.iLike or Op.like for pattern matching
+    // - Consider integrating Google Places Text Search API if needed
+
+    if (!query) {
+      return res.status(400).json({ message: 'Query parameter is required' });
+    }
+
+    // Placeholder implementation - returns empty array
+    const bars = [];
+
+    res.json({
+      bars,
+      query,
+      message: 'Search functionality not yet implemented'
+    });
+  } catch (error) {
+    console.error('Error searching bars:', error);
+    res.status(500).json({ message: 'Error searching bars' });
+  }
+};
+
+// Search bars and users
+exports.searchBarsAndUsers = async (req, res) => {
+  try {
+    const { query } = req.body;
+
+    // TODO: Implement combined bar and user search functionality
+    // - Search both bars and users by query string
+    // - Return combined results with type indicators
+    // - Consider relevance scoring and result ordering
+
+    if (!query) {
+      return res.status(400).json({ message: 'Query parameter is required' });
+    }
+
+    // Placeholder implementation - returns empty arrays
+    const bars = [];
+    const users = [];
+
+    res.json({
+      bars,
+      users,
+      query,
+      message: 'Combined search functionality not yet implemented'
+    });
+  } catch (error) {
+    console.error('Error searching bars and users:', error);
+    res.status(500).json({ message: 'Error searching bars and users' });
+  }
+};
+
+// Get bars by live location
+exports.getBarsByLiveLocation = async (req, res) => {
+  try {
+    const { latitude, longitude, radius } = req.body;
+
+    // TODO: Implement live location-based bar search
+    // - Use latitude and longitude to find nearby bars
+    // - Implement radius-based filtering (default to 5km if not provided)
+    // - Consider using Google Places Nearby Search API
+    // - Or implement custom distance calculation using Haversine formula
+    // - Sort results by distance from user location
+
+    if (!latitude || !longitude) {
+      return res.status(400).json({ message: 'Latitude and longitude are required' });
+    }
+
+    // Placeholder implementation - returns empty array
+    const bars = [];
+
+    res.json({
+      bars,
+      location: { latitude, longitude, radius: radius || 5000 },
+      message: 'Live location search functionality not yet implemented'
+    });
+  } catch (error) {
+    console.error('Error fetching bars by location:', error);
+    res.status(500).json({ message: 'Error fetching bars by location' });
+  }
+};
+
+// Get popular bars
+exports.getPopularBars = async (req, res) => {
+  try {
+    // TODO: Implement popular bars functionality
+    // - Define criteria for "popular" (e.g., most ratings, highest average rating, most visits)
+    // - Consider time-based popularity (trending bars)
+    // - Add pagination support
+    // - Include rating statistics in response
+
+    const { limit = 10 } = req.query;
+
+    // Placeholder implementation - returns empty array
+    const bars = [];
+
+    res.json({
+      bars,
+      limit: parseInt(limit),
+      message: 'Popular bars functionality not yet implemented'
+    });
+  } catch (error) {
+    console.error('Error fetching popular bars:', error);
+    res.status(500).json({ message: 'Error fetching popular bars' });
+  }
+};
+
+// Get ratings for a specific bar
+exports.getBarRatings = async (req, res) => {
+  try {
+    const { barId } = req.params;
+
+    // TODO: Implement bar ratings retrieval
+    // - Fetch all ratings for the specified bar
+    // - Include user information with each rating
+    // - Calculate average rating and total count
+    // - Add pagination support for large numbers of ratings
+    // - Consider sorting options (most recent, highest/lowest rated)
+
+    if (!barId) {
+      return res.status(400).json({ message: 'Bar ID is required' });
+    }
+
+    // Placeholder implementation
+    const ratings = [];
+    const averageRating = 0;
+    const totalRatings = 0;
+
+    res.json({
+      barId,
+      ratings,
+      averageRating,
+      totalRatings,
+      message: 'Bar ratings functionality not yet implemented'
+    });
+  } catch (error) {
+    console.error('Error fetching bar ratings:', error);
+    res.status(500).json({ message: 'Error fetching bar ratings' });
+  }
+};
+
+// Log bar visit
+exports.logBarVisit = async (req, res) => {
+  try {
+    const { barId } = req.params;
+    const { userId, timestamp, duration } = req.body;
+
+    // TODO: Implement bar visit logging functionality
+    // - Create a Visit model/table to track user visits
+    // - Record bar ID, user ID, timestamp, and optional duration
+    // - Use this data for analytics and popular bars calculation
+    // - Consider implementing check-in/check-out functionality
+    // - Add validation to prevent duplicate visits
+
+    if (!barId) {
+      return res.status(400).json({ message: 'Bar ID is required' });
+    }
+
+    if (!userId) {
+      return res.status(400).json({ message: 'User ID is required' });
+    }
+
+    // Placeholder implementation
+    const visit = {
+      barId,
+      userId,
+      timestamp: timestamp || new Date(),
+      duration: duration || null,
+      message: 'Visit logged successfully (placeholder)'
+    };
+
+    res.status(201).json({
+      visit,
+      message: 'Bar visit logging functionality not yet implemented'
+    });
+  } catch (error) {
+    console.error('Error logging bar visit:', error);
+    res.status(500).json({ message: 'Error logging bar visit' });
+  }
+};
